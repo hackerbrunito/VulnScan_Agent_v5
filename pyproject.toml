@@ -1,0 +1,46 @@
+[project]
+name = "vulnscan_agent"
+version = "0.5.0"
+description = "AI-powered vulnerability scanning using CrewAI + Nmap + SearchSploit"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+authors = [
+    { name = "Carlos val Souto", email = "carlosvalsouto@gmail.com" }
+]
+license = { text = "EMAITI" }
+keywords = ["security", "vulnerability", "scanner", "ai", "crewai"]
+classifiers = [
+    "Development Status :: 5 - Beta",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+]
+
+dependencies = [
+    # Core AI framework
+    "crewai==0.98.0",              # The main agent framework
+    
+    # Environment management
+    "python-dotenv>=1.0.0",        # Load .env files
+    
+    # XML parsing for nmap output
+    "lxml>=4.9.0",                 # Fast XML parser
+    
+    # Data handling
+    "pydantic>=2.5.0",             # Data validation
+    
+    # System operations
+    "psutil>=5.9.0",               # Process management
+    
+    # Compatibility fix for Python 3.12
+    "setuptools>=68.0.0",          # Provides distutils compatibility
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
